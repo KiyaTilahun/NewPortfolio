@@ -1,0 +1,1151 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/navigations:
+    get:
+      summary: 'Display  all Navigations'
+      operationId: displayAllNavigations
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/navigations/{menuitem_name}':
+    get:
+      summary: 'Display the specific Navigations'
+      operationId: displayTheSpecificNavigations
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Nothing Found'
+                  status: 404
+                properties:
+                  message:
+                    type: string
+                    example: 'Nothing Found'
+                  status:
+                    type: integer
+                    example: 404
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: menuitem_name
+        description: ''
+        example: quam
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: name
+        description: 'The NAME of the Navigation Section.'
+        example: voluptas
+        required: true
+        schema:
+          type: string
+  /api/sociallink:
+    get:
+      summary: 'Display  all Social Media and Partner logos'
+      operationId: displayAllSocialMediaAndPartnerLogos
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filters[name]'
+          description: 'Filter by Name.'
+          example: '`filters[name]=String`'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by Name.'
+            example: '`filters[name]=String`'
+        -
+          in: query
+          name: 'filters[visible]'
+          description: 'Filter by Visibility.'
+          example: true
+          required: false
+          schema:
+            type: boolean
+            description: 'Filter by Visibility.'
+            example: true
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/sociallink/{socialmedia_name}':
+    get:
+      summary: 'Display the specific Social Media and Partner logos'
+      operationId: displayTheSpecificSocialMediaAndPartnerLogos
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Nothing Found'
+                  status: 404
+                properties:
+                  message:
+                    type: string
+                    example: 'Nothing Found'
+                  status:
+                    type: integer
+                    example: 404
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: socialmedia_name
+        description: ''
+        example: quibusdam
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: name
+        description: 'The NAME of the Social Media.'
+        example: minus
+        required: true
+        schema:
+          type: string
+  /api/footerlink:
+    get:
+      summary: 'Display  all Footer Links and Logos'
+      operationId: displayAllFooterLinksAndLogos
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filters[name]'
+          description: 'Filter by Name.'
+          example: '`filters[name]=example`'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by Name.'
+            example: '`filters[name]=example`'
+        -
+          in: query
+          name: 'filters[visible]'
+          description: 'Filter by Visibility.'
+          example: true
+          required: false
+          schema:
+            type: boolean
+            description: 'Filter by Visibility.'
+            example: true
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/footerlink/{name}':
+    get:
+      summary: 'Display the specific Footer Links and Logos'
+      operationId: displayTheSpecificFooterLinksAndLogos
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Nothing Found'
+                  status: 404
+                properties:
+                  message:
+                    type: string
+                    example: 'Nothing Found'
+                  status:
+                    type: integer
+                    example: 404
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: name
+        description: 'The NAME of the FOOTER SECTION NAME.'
+        example: ab
+        required: true
+        schema:
+          type: string
+  /api/faqs:
+    get:
+      summary: 'Display  all FAQs'
+      operationId: displayAllFAQs
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filters[active]'
+          description: 'Filter by Active status.'
+          example: true
+          required: false
+          schema:
+            type: boolean
+            description: 'Filter by Active status.'
+            example: true
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+  /api/posts:
+    get:
+      summary: 'Display  all of the posts.'
+      operationId: displayAllOfThePosts
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filters[title]'
+          description: 'Filter by Title.'
+          example: '`filters[title]=example`'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by Title.'
+            example: '`filters[title]=example`'
+        -
+          in: query
+          name: 'filters[created_at]'
+          description: 'date Filter by Creation Date.'
+          example: '`filters[created_at]=2024-08-30`'
+          required: false
+          schema:
+            type: string
+            description: 'date Filter by Creation Date.'
+            example: '`filters[created_at]=2024-08-30`'
+        -
+          in: query
+          name: 'filters[category]'
+          description: 'Filter by Title.'
+          example: '`filters[categoey]=example`'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by Title.'
+            example: '`filters[categoey]=example`'
+        -
+          in: query
+          name: 'filters[filtertimeby]'
+          description: "date Filter by time gap. Values='M'||'Y'||'W'"
+          example: ut
+          required: false
+          schema:
+            type: string
+            description: "date Filter by time gap. Values='M'||'Y'||'W'"
+            example: ut
+        -
+          in: query
+          name: sort
+          description: "Field to sort by. Defaults to 'title'. Use `+` for ascending and `-` for descending order."
+          example: '`title=-` or `created_at=+`'
+          required: false
+          schema:
+            type: string
+            description: "Field to sort by. Defaults to 'title'. Use `+` for ascending and `-` for descending order."
+            example: '`title=-` or `created_at=+`'
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://localhost/api/posts?page=1'
+                    last: 'http://localhost/api/posts?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/posts?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/posts'
+                    per_page: 10
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/posts?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/posts?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/posts?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/posts'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Endpoints
+      security: []
+  '/api/posts/{id}':
+    get:
+      summary: 'Display the specific blog'
+      operationId: displayTheSpecificBlog
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Blog\Post] 19'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Blog\Post] 19'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: "The ID of the post.\n}"
+        example: 19
+        required: true
+        schema:
+          type: integer
+  /api/products:
+    get:
+      summary: 'Display a all of the products.'
+      operationId: displayAAllOfTheProducts
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filters[name]'
+          description: 'Filter string Name.'
+          example: tempore
+          required: false
+          schema:
+            type: string
+            description: 'Filter string Name.'
+            example: tempore
+        -
+          in: query
+          name: 'filters[is_available]'
+          description: 'Filter  by Availability.'
+          example: true
+          required: false
+          schema:
+            type: boolean
+            description: 'Filter  by Availability.'
+            example: true
+        -
+          in: query
+          name: 'filters[type]'
+          description: 'Filter by Product Type relation name.'
+          example: '`filters[product_type]=electronics`'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by Product Type relation name.'
+            example: '`filters[product_type]=electronics`'
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://localhost/api/products?page=1'
+                    last: 'http://localhost/api/products?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/products?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/products'
+                    per_page: 6
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/products?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/products?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/products?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/products'
+                      per_page:
+                        type: integer
+                        example: 6
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Endpoints
+      security: []
+  '/api/products/{id}':
+    get:
+      summary: 'Display Specific Product'
+      operationId: displaySpecificProduct
+      description: '@urlParam id integer required The ID of the product.'
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Products\Product] 20'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Products\Product] 20'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the product.'
+        example: 20
+        required: true
+        schema:
+          type: integer
+  /api/settings:
+    get:
+      summary: 'Display  all Settings'
+      operationId: displayAllSettings
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Nothing Found'
+                properties:
+                  error:
+                    type: string
+                    example: 'Nothing Found'
+      tags:
+        - Endpoints
+      security: []
+  '/api/settings/{settingcategory_name}':
+    get:
+      summary: 'Display the specific Setting'
+      operationId: displayTheSpecificSetting
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Nothing Found'
+                  status: 404
+                properties:
+                  message:
+                    type: string
+                    example: 'Nothing Found'
+                  status:
+                    type: integer
+                    example: 404
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: settingcategory_name
+        description: ''
+        example: 9
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: name
+        description: 'The NAME of the Navigation Section.'
+        example: ipsam
+        required: true
+        schema:
+          type: string
+  /api/sitefeature:
+    get:
+      summary: 'Display  all Web Contents'
+      operationId: displayAllWebContents
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filters[name]'
+          description: 'Filter by Name.'
+          example: '`filters[name]=String`'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by Name.'
+            example: '`filters[name]=String`'
+        -
+          in: query
+          name: 'filters[visible]'
+          description: 'Filter by Visibility.'
+          example: true
+          required: false
+          schema:
+            type: boolean
+            description: 'Filter by Visibility.'
+            example: true
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      type: 'web contents'
+                      LANDING:
+                        visible: true
+                        title: First
+                        description: null
+                        attributes:
+                          -
+                            url: null
+                            icon: null
+                            image: 'http://localhost/storage/images/siteFeatures/01JBGQ8SC6FJRG9MHGMGXM1RCD.jpg'
+                            title: null
+                            rating: 0
+                            subtitle: null
+                            page_names: []
+                            visibility: true
+                            description: '<p>&nbsp; &lt;h1 class="mb-4 mt-3"&gt;I''m &lt;span&gt;Kiya Tilahun&lt;/span&gt;&lt;/h1&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class="mb-4"&gt;A Freelance Web Designer&lt;/h2&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;&lt;a href="#" class="btn btn-primary py-3 px-4"&gt;Hire me&lt;/a&gt; &lt;a href="#" class="btn btn-white btn-outline-white py-3 px-4"&gt;My works&lt;/a&gt;&lt;/p&gt;</p>'
+                        seo:
+                          title: null
+                          description: null
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        type: 'web contents'
+                        LANDING:
+                          visible: true
+                          title: First
+                          description: null
+                          attributes:
+                            -
+                              url: null
+                              icon: null
+                              image: 'http://localhost/storage/images/siteFeatures/01JBGQ8SC6FJRG9MHGMGXM1RCD.jpg'
+                              title: null
+                              rating: 0
+                              subtitle: null
+                              page_names: []
+                              visibility: true
+                              description: '<p>&nbsp; &lt;h1 class="mb-4 mt-3"&gt;I''m &lt;span&gt;Kiya Tilahun&lt;/span&gt;&lt;/h1&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class="mb-4"&gt;A Freelance Web Designer&lt;/h2&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;&lt;a href="#" class="btn btn-primary py-3 px-4"&gt;Hire me&lt;/a&gt; &lt;a href="#" class="btn btn-white btn-outline-white py-3 px-4"&gt;My works&lt;/a&gt;&lt;/p&gt;</p>'
+                          seo:
+                            title: null
+                            description: null
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: 'web contents'
+                        LANDING:
+                          type: object
+                          properties:
+                            visible:
+                              type: boolean
+                              example: true
+                            title:
+                              type: string
+                              example: First
+                            description:
+                              type: string
+                              example: null
+                            attributes:
+                              type: array
+                              example:
+                                -
+                                  url: null
+                                  icon: null
+                                  image: 'http://localhost/storage/images/siteFeatures/01JBGQ8SC6FJRG9MHGMGXM1RCD.jpg'
+                                  title: null
+                                  rating: 0
+                                  subtitle: null
+                                  page_names: []
+                                  visibility: true
+                                  description: '<p>&nbsp; &lt;h1 class="mb-4 mt-3"&gt;I''m &lt;span&gt;Kiya Tilahun&lt;/span&gt;&lt;/h1&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class="mb-4"&gt;A Freelance Web Designer&lt;/h2&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;&lt;a href="#" class="btn btn-primary py-3 px-4"&gt;Hire me&lt;/a&gt; &lt;a href="#" class="btn btn-white btn-outline-white py-3 px-4"&gt;My works&lt;/a&gt;&lt;/p&gt;</p>'
+                              items:
+                                type: object
+                                properties:
+                                  url:
+                                    type: string
+                                    example: null
+                                  icon:
+                                    type: string
+                                    example: null
+                                  image:
+                                    type: string
+                                    example: 'http://localhost/storage/images/siteFeatures/01JBGQ8SC6FJRG9MHGMGXM1RCD.jpg'
+                                  title:
+                                    type: string
+                                    example: null
+                                  rating:
+                                    type: integer
+                                    example: 0
+                                  subtitle:
+                                    type: string
+                                    example: null
+                                  page_names:
+                                    type: array
+                                    example: []
+                                  visibility:
+                                    type: boolean
+                                    example: true
+                                  description:
+                                    type: string
+                                    example: '<p>&nbsp; &lt;h1 class="mb-4 mt-3"&gt;I''m &lt;span&gt;Kiya Tilahun&lt;/span&gt;&lt;/h1&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class="mb-4"&gt;A Freelance Web Designer&lt;/h2&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;&lt;a href="#" class="btn btn-primary py-3 px-4"&gt;Hire me&lt;/a&gt; &lt;a href="#" class="btn btn-white btn-outline-white py-3 px-4"&gt;My works&lt;/a&gt;&lt;/p&gt;</p>'
+                            seo:
+                              type: object
+                              properties:
+                                title:
+                                  type: string
+                                  example: null
+                                description:
+                                  type: string
+                                  example: null
+      tags:
+        - Endpoints
+      security: []
+  '/api/sitefeature/{name}':
+    get:
+      summary: 'Display the specific Web Contents'
+      operationId: displayTheSpecificWebContents
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Nothing Found'
+                  status: 404
+                properties:
+                  message:
+                    type: string
+                    example: 'Nothing Found'
+                  status:
+                    type: integer
+                    example: 404
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: name
+        description: 'The NAME of the Specific Site Feature.'
+        example: minima
+        required: true
+        schema:
+          type: string
+  '/api/posts/latest/{day}':
+    get:
+      summary: 'Display Latest News .'
+      operationId: displayLatestNews
+      description: '<aside class="notice"> Use Parameter name="Number"</aside>'
+      parameters: []
+      responses:
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Use a Numeric Value for the Number'
+                  status: 400
+                properties:
+                  message:
+                    type: string
+                    example: 'Use a Numeric Value for the Number'
+                  status:
+                    type: integer
+                    example: 400
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: day
+        description: ''
+        example: ut
+        required: true
+        schema:
+          type: string
+  '/api/posts/{id}/like':
+    get:
+      summary: 'Liking and Unliking posts .'
+      operationId: likingAndUnlikingPosts
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Blog\Post] expedita'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Blog\Post] expedita'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the post.'
+        example: expedita
+        required: true
+        schema:
+          type: string
+  /api/mediaCategories:
+    get:
+      summary: 'Display  all parent Categories/Folders'
+      operationId: displayAllParentCategoriesFolders
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filters[name]'
+          description: 'Filter by Name.'
+          example: '`filters[name]=String`'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by Name.'
+            example: '`filters[name]=String`'
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/mediaCategories/{id}':
+    get:
+      summary: 'Display Specific Media Category'
+      operationId: displaySpecificMediaCategory
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\General\MediaCategory] 16'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\General\MediaCategory] 16'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the MediaCategory.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/visitors:
+    get:
+      summary: 'Returns the Count of the page visitors and increment the visitor count'
+      operationId: returnsTheCountOfThePageVisitorsAndIncrementTheVisitorCount
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  'total visits': 0
+                  'daily visit': 1
+                properties:
+                  'total visits':
+                    type: integer
+                    example: 0
+                  'daily visit':
+                    type: integer
+                    example: 1
+      tags:
+        - Endpoints
+      security: []
+  '/api/pages/{name}':
+    get:
+      summary: 'Display the specific Page'
+      operationId: displayTheSpecificPage
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'pagination[productperpage]'
+          description: 'Paginate the Products.'
+          example: 0
+          required: false
+          schema:
+            type: integer
+            description: 'Paginate the Products.'
+            example: 0
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\n  \"siteFeatures\": [\n    {\n      \"type\": \"web contents\",\n      \"exampleName\": {\n        \"visible\": true,\n        \"title\": \"Example Title\",\n        \"description\": \"Example description text.\",\n        \"attributes\": [\n          {\n            \"icon\": \"example-icon\",\n            \"image\": \"images/example.jpg\",\n            \"title\": \"Example Attribute Title\",\n            \"rating\": 5,\n            \"subtitle\": \"Example Subtitle\",\n            \"page_names\": [\"home\", \"about\"],\n            \"visibility\": true,\n            \"description\": \"Detailed description.\"\n          }\n        ],\n        \"seo\": {\n          \"title\": \"Example SEO Title\",\n          \"description\": \"Example SEO Description\"\n        }\n      }\n    }\n  ],\n  \"faqs\": [\n    {},{}\n  ],\n  \"socialMedias\": [\n    {\n      {},{}\n    }\n  ],\n  \"products\": [\n   {},{}\n  ]\n}\n}"
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: name
+        description: "The NAME of the Page.\nif pagination is used the other pages will be returned as pages/PAGENAME?productperpage=1&page=2"
+        example: dolorem
+        required: true
+        schema:
+          type: string
+  /api/form/contacts:
+    post:
+      summary: 'Send New Message'
+      operationId: sendNewMessage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: u
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: lrdxbbt
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: betty52@example.com
+                phone_number:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: pagsfysjavjdgpokbprx
+                subject:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: edukavrjgkmbualumxqummkv
+                message:
+                  type: string
+                  description: ''
+                  example: dolores
+              required:
+                - first_name
+                - last_name
+                - email
+                - message
+      security: []
+  /api/form/subscribers:
+    post:
+      summary: 'Store  New Subscribers'
+      operationId: storeNewSubscribers
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: aft@gmail.com
+              required:
+                - email
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''

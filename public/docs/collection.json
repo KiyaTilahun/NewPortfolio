@@ -1,0 +1,1301 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "f7ad9039-ce49-4ac5-8533-4941ea3a0a23",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display  all Navigations",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/navigations",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/navigations"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specific Navigations",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/navigations\/:menuitem_name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/navigations\/:menuitem_name",
+                            "variable": [
+                                {
+                                    "id": "menuitem_name",
+                                    "key": "menuitem_name",
+                                    "value": "quam",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "name",
+                                    "key": "name",
+                                    "value": "voluptas",
+                                    "description": "The NAME of the Navigation Section."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Nothing Found\",\"status\":404}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display  all Social Media and Partner logos",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/sociallink",
+                            "query": [
+                                {
+                                    "key": "filters%5Bname%5D",
+                                    "value": "%60filters%5Bname%5D%3DString%60",
+                                    "description": "Filter by Name.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filters%5Bvisible%5D",
+                                    "value": "1",
+                                    "description": "Filter by Visibility.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/sociallink?filters%5Bname%5D=%60filters%5Bname%5D%3DString%60&filters%5Bvisible%5D=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specific Social Media and Partner logos",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/sociallink\/:socialmedia_name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/sociallink\/:socialmedia_name",
+                            "variable": [
+                                {
+                                    "id": "socialmedia_name",
+                                    "key": "socialmedia_name",
+                                    "value": "quibusdam",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "name",
+                                    "key": "name",
+                                    "value": "minus",
+                                    "description": "The NAME of the Social Media."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Nothing Found\",\"status\":404}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display  all Footer Links and Logos",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/footerlink",
+                            "query": [
+                                {
+                                    "key": "filters%5Bname%5D",
+                                    "value": "%60filters%5Bname%5D%3Dexample%60",
+                                    "description": "Filter by Name.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filters%5Bvisible%5D",
+                                    "value": "1",
+                                    "description": "Filter by Visibility.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/footerlink?filters%5Bname%5D=%60filters%5Bname%5D%3Dexample%60&filters%5Bvisible%5D=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specific Footer Links and Logos",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/footerlink\/:name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/footerlink\/:name",
+                            "variable": [
+                                {
+                                    "id": "name",
+                                    "key": "name",
+                                    "value": "ab",
+                                    "description": "The NAME of the FOOTER SECTION NAME."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Nothing Found\",\"status\":404}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display  all FAQs",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/faqs",
+                            "query": [
+                                {
+                                    "key": "filters%5Bactive%5D",
+                                    "value": "1",
+                                    "description": "Filter by Active status.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/faqs?filters%5Bactive%5D=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display  all of the posts.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [
+                                {
+                                    "key": "filters%5Btitle%5D",
+                                    "value": "%60filters%5Btitle%5D%3Dexample%60",
+                                    "description": "Filter by Title.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filters%5Bcreated_at%5D",
+                                    "value": "%60filters%5Bcreated_at%5D%3D2024-08-30%60",
+                                    "description": "date Filter by Creation Date.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filters%5Bcategory%5D",
+                                    "value": "%60filters%5Bcategoey%5D%3Dexample%60",
+                                    "description": "Filter by Title.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filters%5Bfiltertimeby%5D",
+                                    "value": "ut",
+                                    "description": "date Filter by time gap. Values='M'||'Y'||'W'",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "%60title%3D-%60+or+%60created_at%3D%2B%60",
+                                    "description": "Field to sort by. Defaults to 'title'. Use `+` for ascending and `-` for descending order.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/posts?filters%5Btitle%5D=%60filters%5Btitle%5D%3Dexample%60&filters%5Bcreated_at%5D=%60filters%5Bcreated_at%5D%3D2024-08-30%60&filters%5Bcategory%5D=%60filters%5Bcategoey%5D%3Dexample%60&filters%5Bfiltertimeby%5D=ut&sort=%60title%3D-%60+or+%60created_at%3D%2B%60"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/posts?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/posts?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/posts?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/posts\",\"per_page\":10,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specific blog",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "19",
+                                    "description": "The ID of the post.\n}"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Blog\\\\Post] 19\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display a all of the products.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products",
+                            "query": [
+                                {
+                                    "key": "filters%5Bname%5D",
+                                    "value": "tempore",
+                                    "description": "Filter string Name.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filters%5Bis_available%5D",
+                                    "value": "1",
+                                    "description": "Filter  by Availability.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filters%5Btype%5D",
+                                    "value": "%60filters%5Bproduct_type%5D%3Delectronics%60",
+                                    "description": "Filter by Product Type relation name.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/products?filters%5Bname%5D=tempore&filters%5Bis_available%5D=1&filters%5Btype%5D=%60filters%5Bproduct_type%5D%3Delectronics%60"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/products?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/products?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/products?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/products\",\"per_page\":6,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display Specific Product",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "20",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@urlParam id integer required The ID of the product.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Products\\\\Product] 20\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display  all Settings",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/settings",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/settings"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"error\":\"Nothing Found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specific Setting",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/settings\/:settingcategory_name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/settings\/:settingcategory_name",
+                            "variable": [
+                                {
+                                    "id": "settingcategory_name",
+                                    "key": "settingcategory_name",
+                                    "value": "9",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "name",
+                                    "key": "name",
+                                    "value": "ipsam",
+                                    "description": "The NAME of the Navigation Section."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Nothing Found\",\"status\":404}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display  all Web Contents",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/sitefeature",
+                            "query": [
+                                {
+                                    "key": "filters%5Bname%5D",
+                                    "value": "%60filters%5Bname%5D%3DString%60",
+                                    "description": "Filter by Name.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filters%5Bvisible%5D",
+                                    "value": "1",
+                                    "description": "Filter by Visibility.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/sitefeature?filters%5Bname%5D=%60filters%5Bname%5D%3DString%60&filters%5Bvisible%5D=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"type\":\"web contents\",\"LANDING\":{\"visible\":true,\"title\":\"First\",\"description\":null,\"attributes\":[{\"url\":null,\"icon\":null,\"image\":\"http:\\\/\\\/localhost\\\/storage\\\/images\\\/siteFeatures\\\/01JBGQ8SC6FJRG9MHGMGXM1RCD.jpg\",\"title\":null,\"rating\":0,\"subtitle\":null,\"page_names\":[],\"visibility\":true,\"description\":\"<p>&nbsp; &lt;h1 class=\\\"mb-4 mt-3\\\"&gt;I'm &lt;span&gt;Kiya Tilahun&lt;\\\/span&gt;&lt;\\\/h1&gt;<\\\/p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=\\\"mb-4\\\"&gt;A Freelance Web Designer&lt;\\\/h2&gt;<\\\/p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;&lt;a href=\\\"#\\\" class=\\\"btn btn-primary py-3 px-4\\\"&gt;Hire me&lt;\\\/a&gt; &lt;a href=\\\"#\\\" class=\\\"btn btn-white btn-outline-white py-3 px-4\\\"&gt;My works&lt;\\\/a&gt;&lt;\\\/p&gt;<\\\/p>\"}],\"seo\":{\"title\":null,\"description\":null}}}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specific Web Contents",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/sitefeature\/:name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/sitefeature\/:name",
+                            "variable": [
+                                {
+                                    "id": "name",
+                                    "key": "name",
+                                    "value": "minima",
+                                    "description": "The NAME of the Specific Site Feature."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Nothing Found\",\"status\":404}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display Latest News .",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/latest\/:day",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/latest\/:day",
+                            "variable": [
+                                {
+                                    "id": "day",
+                                    "key": "day",
+                                    "value": "ut",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "<aside class=\"notice\"> Use Parameter name=\"Number\"<\/aside>",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 400,
+                            "body": "{\"message\":\"Use a Numeric Value for the Number\",\"status\":400}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Liking and Unliking posts .",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id\/like",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/:id\/like",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "expedita",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Blog\\\\Post] expedita\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display  all parent Categories\/Folders",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/mediaCategories",
+                            "query": [
+                                {
+                                    "key": "filters%5Bname%5D",
+                                    "value": "%60filters%5Bname%5D%3DString%60",
+                                    "description": "Filter by Name.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/mediaCategories?filters%5Bname%5D=%60filters%5Bname%5D%3DString%60"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display Specific Media Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/mediaCategories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/mediaCategories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the MediaCategory."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\General\\\\MediaCategory] 16\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Returns the Count of the page visitors and increment the visitor count",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/visitors",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/visitors"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"total visits\":0,\"daily visit\":1}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specific Page",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pages\/:name",
+                            "query": [
+                                {
+                                    "key": "pagination%5Bproductperpage%5D",
+                                    "value": "",
+                                    "description": "Paginate the Products.",
+                                    "disabled": true
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/pages\/:name?pagination%5Bproductperpage%5D=",
+                            "variable": [
+                                {
+                                    "id": "name",
+                                    "key": "name",
+                                    "value": "dolorem",
+                                    "description": "The NAME of the Page.\nif pagination is used the other pages will be returned as pages\/PAGENAME?productperpage=1&page=2"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\n  \"siteFeatures\": [\n    {\n      \"type\": \"web contents\",\n      \"exampleName\": {\n        \"visible\": true,\n        \"title\": \"Example Title\",\n        \"description\": \"Example description text.\",\n        \"attributes\": [\n          {\n            \"icon\": \"example-icon\",\n            \"image\": \"images\/example.jpg\",\n            \"title\": \"Example Attribute Title\",\n            \"rating\": 5,\n            \"subtitle\": \"Example Subtitle\",\n            \"page_names\": [\"home\", \"about\"],\n            \"visibility\": true,\n            \"description\": \"Detailed description.\"\n          }\n        ],\n        \"seo\": {\n          \"title\": \"Example SEO Title\",\n          \"description\": \"Example SEO Description\"\n        }\n      }\n    }\n  ],\n  \"faqs\": [\n    {},{}\n  ],\n  \"socialMedias\": [\n    {\n      {},{}\n    }\n  ],\n  \"products\": [\n   {},{}\n  ]\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Send New Message",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/form\/contacts",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/form\/contacts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"u\",\"last_name\":\"lrdxbbt\",\"email\":\"betty52@example.com\",\"phone_number\":\"pagsfysjavjdgpokbprx\",\"subject\":\"edukavrjgkmbualumxqummkv\",\"message\":\"dolores\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Store  New Subscribers",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/form\/subscribers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/form\/subscribers"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"aft@gmail.com\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
