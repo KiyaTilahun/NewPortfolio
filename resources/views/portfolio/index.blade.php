@@ -27,39 +27,45 @@
 
     <style>
         .services-1:hover {
-    text-decoration: none !important; /* Ensures no underline on hover */
-   /* background: #ffbd3969 !important;  */
-   background:none !important; 
+            text-decoration: none !important;
+            /* Ensures no underline on hover */
+            /* background: #ffbd3969 !important;  */
+            background: none !important;
 
 
-    color: inherit !important; /* Ensures the color remains the same on hover */
-}
-.services-1{
-    
-    padding: 1em !important;
-}
-.heading-section h1.big{
-    font-size: 70px !important;
-}
- .icon-container:hover{
+            color: inherit !important;
+            /* Ensures the color remains the same on hover */
+        }
 
-    transform: scaleY(1.1);
-    animation: ease-in 0.5s;
+        .services-1 {
 
-}
-.icon-container {
-    transition: transform 1.5s ease-in-out; /* Smooth transition */
-    
-}
-.skilltext{
-    
-  font-family: "Tiny5", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+            padding: 1em !important;
+        }
 
-}
+        .heading-section h1.big {
+            font-size: 70px !important;
+        }
 
+        .icon-container:hover {
 
+            transform: scaleY(1.1);
+            animation: ease-in 0.5s;
+
+        }
+
+        .icon-container {
+            transition: transform 1.5s ease-in-out;
+            /* Smooth transition */
+
+        }
+
+        .skilltext {
+
+            font-family: "Tiny5", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+
+        }
     </style>
 </head>
 
@@ -113,17 +119,18 @@
 
 
 
-								@if (isset($siteFeaturesArray['LANDING']))
-								<div class="landing-section">
-									@foreach ($siteFeaturesArray['LANDING']['data'] as $item) <!-- Accessing the 'data' array -->
-										@if (isset($item['description']))
-											<div class="feature-description">
-												{!! html_entity_decode($item['description']) !!} <!-- Display the description -->
-											</div>
-										@endif
-									@endforeach
-								</div>
-							@endif
+                                @if (isset($siteFeaturesArray['LANDING']))
+                                    <div class="landing-section">
+                                        @foreach ($siteFeaturesArray['LANDING']['data'] as $item)
+                                            <!-- Accessing the 'data' array -->
+                                            @if (isset($item['description']))
+                                                <div class="feature-description">
+                                                    {!! html_entity_decode($item['description']) !!} <!-- Display the description -->
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @endif
 
                             </div>
                         </div>
@@ -149,12 +156,12 @@
                     <div class="row justify-content-start pb-3">
                         <div class="col-md-12 heading-section ftco-animate">
 
-							@if (isset($siteFeaturesArray['ABOUT']))
-                            <h1 class="big">About</h1>
-                            <h2 class="mb-4">About Me</h2>
-                            <p>{!!$siteFeaturesArray['ABOUT']['description']!!}</p>
-                            <ul class="about-info mt-4 px-md-0 px-2">
-                               
+                            @if (isset($siteFeaturesArray['ABOUT']))
+                                <h1 class="big">About</h1>
+                                <h2 class="mb-4">About Me</h2>
+                                <p>{!! $siteFeaturesArray['ABOUT']['description'] !!}</p>
+                                <ul class="about-info mt-4 px-md-0 px-2">
+
                                     @foreach ($siteFeaturesArray['ABOUT']['data'] as $item)
                                         <!-- Accessing the 'data' array -->
                                         @if (isset($item['description']))
@@ -162,7 +169,7 @@
                                             {!! html_entity_decode($item['description']) !!}
                                         @endif
                                     @endforeach
-                                @endif
+                            @endif
                             </ul>
                         </div>
                     </div>
@@ -172,7 +179,8 @@
                                 <span class="number" data-number="120">0</span>
                                 <span>Project complete</span>
                             </p>
-                            <p><a href="{{ route('download', ['file_label' => 'CV']) }}" class="btn btn-primary py-3 px-3" target="_blank">Download CV</a></p>
+                            <p><a href="{{ route('download', ['file_label' => 'CV']) }}"
+                                    class="btn btn-primary py-3 px-3" target="_blank">Download CV</a></p>
                         </div>
                     </div>
                 </div>
@@ -191,29 +199,32 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-					@if (isset($siteFeaturesArray['RESUME']))
-					@foreach ($siteFeaturesArray['RESUME']['data'] as $item)
-					<!-- Accessing the 'data' array -->
-					
+                    @if (isset($siteFeaturesArray['RESUME']))
+                        @foreach ($siteFeaturesArray['RESUME']['data'] as $item)
+                            <!-- Accessing the 'data' array -->
 
-					<div class="resume-wrap ftco-animate">
-                        <span class="date">{{$item['icon']}}</span>
-                        <h2>{{$item['title']}}</h2>
-                        <span class="position">{{$item['subtitle']}}</span>
-                        <p class="mt-4"> @if (isset($item['description']))
-							<!-- Display the content in a readable format -->
-							{!! html_entity_decode($item['description']) !!}
-						@endif</p>
-                    </div>
-				@endforeach
-					@endif
+
+                            <div class="resume-wrap ftco-animate">
+                                <span class="date">{{ $item['icon'] }}</span>
+                                <h2>{{ $item['title'] }}</h2>
+                                <span class="position">{{ $item['subtitle'] }}</span>
+                                <p class="mt-4">
+                                    @if (isset($item['description']))
+                                        <!-- Display the content in a readable format -->
+                                        {!! html_entity_decode($item['description']) !!}
+                                    @endif
+                                </p>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
 
-               
+
             </div>
             <div class="row justify-content-center mt-5">
                 <div class="col-md-6 text-center ftco-animate">
-                    <p><a href="{{ route('download', ['file_label' => 'CV']) }}" class="btn btn-primary py-4 px-5" target="_blank">Download CV</a></p>
+                    <p><a href="{{ route('download', ['file_label' => 'CV']) }}" class="btn btn-primary py-4 px-5"
+                            target="_blank">Download CV</a></p>
                 </div>
             </div>
         </div>
@@ -230,94 +241,97 @@
             </div>
 
 
-        {{-- Languages  --}}
-        <div class="col-md-12 heading-section text-center ftco-animate">
-              
-            <h1 class="big big-2">Programming Languages</h1>
-           
-            <h2 class="mb-4">Programming Languages</h2>
-        </div>
-        <div class="row text-center">
-            
-            @foreach($socialArray['PROGRAMMING_LANGUAGES']['url'] as $urlEntry)
-            <div class="col-md-2 text-center d-flex icon-container ">
-            
-            
-                <div class="services-1" style="">
-                    <span class="icon">
-                      
-                            @if(isset($urlEntry['url']))
-                                <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}" width="70" height="70">
-                            @endif
-                       
-                    </span>
-                    <div class=" skilltext">
-                        {{ $urlEntry['sociallink'] ?? 'Default Title' }}
-                    </div>
-                </div>
+            {{-- Languages  --}}
+            <div class="col-md-12 heading-section text-center ftco-animate">
+
+                <h1 class="big big-2">Programming Languages</h1>
+
+                <h2 class="mb-4">Programming Languages</h2>
             </div>
-            @endforeach
-           
-        </div>
-        {{-- <hr class="hr" style="height: 1px; background-color:#ffbd39; border: none;margin:2em;">  --}}
+            <div class="row text-center">
+
+                @foreach ($socialArray['PROGRAMMING_LANGUAGES']['url'] as $urlEntry)
+                    <div class="col-md-2 text-center d-flex icon-container ">
+
+
+                        <div class="services-1" style="">
+                            <span class="icon">
+
+                                @if (isset($urlEntry['url']))
+                                    <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}"
+                                        width="70" height="70">
+                                @endif
+
+                            </span>
+                            <div class=" skilltext">
+                                {{ $urlEntry['sociallink'] ?? 'Default Title' }}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+            {{-- <hr class="hr" style="height: 1px; background-color:#ffbd39; border: none;margin:2em;">  --}}
             {{-- frameworks --}}
             <div class="col-md-12 heading-section text-center ftco-animate">
-              
+
                 <h1 class="big big-2">Frameworks</h1>
-               
+
                 <h2 class="mb-4">Frameworks</h2>
             </div>
             <div class="row">
-                
-                @foreach($socialArray['FRAMEWORKS']['url'] as $urlEntry)
-                <div class="col-md-2 text-center d-flex  icon-container">
-                
-                
-                    <div class="services-1" style="">
-                        <span class="icon">
-                          
-                                @if(isset($urlEntry['url']))
-                                    <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}" width="70" height="70">
+
+                @foreach ($socialArray['FRAMEWORKS']['url'] as $urlEntry)
+                    <div class="col-md-2 text-center d-flex  icon-container">
+
+
+                        <div class="services-1" style="">
+                            <span class="icon">
+
+                                @if (isset($urlEntry['url']))
+                                    <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}"
+                                        width="70" height="70">
                                 @endif
-                           
-                        </span>
-                        <div class="desc skilltext">
-                            {{ $urlEntry['sociallink'] ?? 'Default Title' }}
+
+                            </span>
+                            <div class="desc skilltext">
+                                {{ $urlEntry['sociallink'] ?? 'Default Title' }}
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-               
+
             </div>
 
-             {{-- tools --}}
-             <div class="col-md-12 heading-section text-center ftco-animate">
-              
+            {{-- tools --}}
+            <div class="col-md-12 heading-section text-center ftco-animate">
+
                 <h1 class="big big-2">Tools</h1>
-               
+
                 <h2 class="mb-4">Tools</h2>
             </div>
             <div class="row">
-                
-                @foreach($socialArray['TOOLS']['url'] as $urlEntry)
-                <div class="col-md-2 text-center d-flex  icon-container">
-                
-                
-                    <div class="services-1" style="">
-                        <span class="icon">
-                          
-                                @if(isset($urlEntry['url']))
-                                    <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}" width="70" height="70">
+
+                @foreach ($socialArray['TOOLS']['url'] as $urlEntry)
+                    <div class="col-md-2 text-center d-flex  icon-container">
+
+
+                        <div class="services-1" style="">
+                            <span class="icon">
+
+                                @if (isset($urlEntry['url']))
+                                    <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}"
+                                        width="70" height="70">
                                 @endif
-                           
-                        </span>
-                        <div class="desc skilltext">
-                            {{ $urlEntry['sociallink'] ?? 'Default Title' }}
+
+                            </span>
+                            <div class="desc skilltext">
+                                {{ $urlEntry['sociallink'] ?? 'Default Title' }}
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-               
+
             </div>
         </div>
     </section>
@@ -414,26 +428,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-                        style="background-image: url(images/project-4.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
+                @foreach ($siteFeaturesArray['PROJECTS']['data'] as $index => $project)
+                    <div class="col-md-{{ $index % (2+rand(1,2)) === 0 ? '5' : '7' }}">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center"
+                            style="background-image: url('{{ $project['image'] }}');background-position: center !important;">
+                            <div class="overlay"></div>
+                            <div class="text text-center p-4">
+                                <h3><a href="#">{{ $project['title'] }}</a></h3>
+                                {{-- <span>{{ $project->category }}</span> --}}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-                        style="background-image: url(images/project-5.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
                 <div class="col-md-8">
                     <div class="project img ftco-animate d-flex justify-content-center align-items-center"
