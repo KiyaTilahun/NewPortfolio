@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
 
@@ -22,6 +25,42 @@
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <style>
+        .services-1:hover {
+    text-decoration: none !important; /* Ensures no underline on hover */
+   /* background: #ffbd3969 !important;  */
+   background:none !important; 
+
+
+    color: inherit !important; /* Ensures the color remains the same on hover */
+}
+.services-1{
+    
+    padding: 1em !important;
+}
+.heading-section h1.big{
+    font-size: 70px !important;
+}
+ .icon-container:hover{
+
+    transform: scaleY(1.1);
+    animation: ease-in 0.5s;
+
+}
+.icon-container {
+    transition: transform 1.5s ease-in-out; /* Smooth transition */
+    
+}
+.skilltext{
+    
+  font-family: "Tiny5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -40,8 +79,8 @@
                     <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
                     <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
                     <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-                    <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
-                    <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
+                    <li class="nav-item"><a href="#skill-section" class="nav-link"><span>Skills</span></a></li>
+                    {{-- <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li> --}}
                     <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
                     <li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
                     <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
@@ -133,7 +172,7 @@
                                 <span class="number" data-number="120">0</span>
                                 <span>Project complete</span>
                             </p>
-                            <p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p>
+                            <p><a href="{{ route('download', ['file_label' => 'CV']) }}" class="btn btn-primary py-3 px-3" target="_blank">Download CV</a></p>
                         </div>
                     </div>
                 </div>
@@ -147,8 +186,7 @@
                 <div class="col-md-10 heading-section text-center ftco-animate">
                     <h1 class="big big-2">Resume</h1>
                     <h2 class="mb-4">Resume</h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                        is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                    <p>This section provides an overview of my educational background and Job Experience.</p>
                 </div>
             </div>
             <div class="row">
@@ -175,89 +213,117 @@
             </div>
             <div class="row justify-content-center mt-5">
                 <div class="col-md-6 text-center ftco-animate">
-                    <p><a href="#" class="btn btn-primary py-4 px-5">Download CV</a></p>
+                    <p><a href="{{ route('download', ['file_label' => 'CV']) }}" class="btn btn-primary py-4 px-5" target="_blank">Download CV</a></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ftco-section" id="services-section">
+    <section class="ftco-section " id="skill-section">
         <div class="container">
             <div class="row justify-content-center py-5 mt-5">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h1 class="big big-2">Services</h1>
-                    <h2 class="mb-4">Services</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                    <h1 class="big big-2">Skills</h1>
+                    <h2 class="mb-4">Skills</h2>
+                    <p>Below, I’ve outlined the specific technologies and frameworks I have experience with:</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-                            <i class="flaticon-analysis"></i>
-                        </span>
-                        <div class="desc">
-                            <h3 class="mb-5">Web Design</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-                            <i class="flaticon-flasks"></i>
-                        </span>
-                        <div class="desc">
-                            <h3 class="mb-5">Phtography</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-                            <i class="flaticon-ideas"></i>
-                        </span>
-                        <div class="desc">
-                            <h3 class="mb-5">Web Developer</h3>
-                        </div>
-                    </a>
-                </div>
 
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-                            <i class="flaticon-analysis"></i>
-                        </span>
-                        <div class="desc">
-                            <h3 class="mb-5">App Developing</h3>
-                        </div>
-                    </a>
+
+        {{-- Languages  --}}
+        <div class="col-md-12 heading-section text-center ftco-animate">
+              
+            <h1 class="big big-2">Programming Languages</h1>
+           
+            <h2 class="mb-4">Programming Languages</h2>
+        </div>
+        <div class="row text-center">
+            
+            @foreach($socialArray['PROGRAMMING_LANGUAGES']['url'] as $urlEntry)
+            <div class="col-md-2 text-center d-flex icon-container ">
+            
+            
+                <div class="services-1" style="">
+                    <span class="icon">
+                      
+                            @if(isset($urlEntry['url']))
+                                <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}" width="70" height="70">
+                            @endif
+                       
+                    </span>
+                    <div class=" skilltext">
+                        {{ $urlEntry['sociallink'] ?? 'Default Title' }}
+                    </div>
                 </div>
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
+            </div>
+            @endforeach
+           
+        </div>
+        {{-- <hr class="hr" style="height: 1px; background-color:#ffbd39; border: none;margin:2em;">  --}}
+            {{-- frameworks --}}
+            <div class="col-md-12 heading-section text-center ftco-animate">
+              
+                <h1 class="big big-2">Frameworks</h1>
+               
+                <h2 class="mb-4">Frameworks</h2>
+            </div>
+            <div class="row">
+                
+                @foreach($socialArray['FRAMEWORKS']['url'] as $urlEntry)
+                <div class="col-md-2 text-center d-flex  icon-container">
+                
+                
+                    <div class="services-1" style="">
                         <span class="icon">
-                            <i class="flaticon-flasks"></i>
+                          
+                                @if(isset($urlEntry['url']))
+                                    <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}" width="70" height="70">
+                                @endif
+                           
                         </span>
-                        <div class="desc">
-                            <h3 class="mb-5">Branding</h3>
+                        <div class="desc skilltext">
+                            {{ $urlEntry['sociallink'] ?? 'Default Title' }}
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
+                @endforeach
+               
+            </div>
+
+             {{-- tools --}}
+             <div class="col-md-12 heading-section text-center ftco-animate">
+              
+                <h1 class="big big-2">Tools</h1>
+               
+                <h2 class="mb-4">Tools</h2>
+            </div>
+            <div class="row">
+                
+                @foreach($socialArray['TOOLS']['url'] as $urlEntry)
+                <div class="col-md-2 text-center d-flex  icon-container">
+                
+                
+                    <div class="services-1" style="">
                         <span class="icon">
-                            <i class="flaticon-ideas"></i>
+                          
+                                @if(isset($urlEntry['url']))
+                                    <img src="{{ $urlEntry['url'] }}" alt="{{ $urlEntry['sociallink'] }}" width="70" height="70">
+                                @endif
+                           
                         </span>
-                        <div class="desc">
-                            <h3 class="mb-5">Product Strategy</h3>
+                        <div class="desc skilltext">
+                            {{ $urlEntry['sociallink'] ?? 'Default Title' }}
                         </div>
-                    </a>
+                    </div>
                 </div>
+                @endforeach
+               
             </div>
         </div>
     </section>
 
 
-    <section class="ftco-section" id="skills-section">
+    {{-- <section class="ftco-section" id="skills-section">
         <div class="container">
             <div class="row justify-content-center pb-5">
                 <div class="col-md-12 heading-section text-center ftco-animate">
@@ -335,7 +401,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
     <section class="ftco-section ftco-project" id="projects-section">

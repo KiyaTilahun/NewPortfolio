@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return redirect()->route("filament.admin.auth.login");
 // });
-Route::get('/', function () {
-    return view('portfolio.index');
-});
+// Route::get('/', function () {
+//     return view('portfolio.index');
+// });
 
 Route::get('/docs', function () {
     return file_get_contents(public_path('docs/index.html'));
@@ -23,7 +23,7 @@ Route::get('/docs', function () {
 Route::get('/', [SiteFeatureController::class,'index']
 );
 
-
+Route::get('/download/{file_label}', [SiteFeatureController::class, 'download'])->name('download');
 
 
 // Route::get('/demoshare/{post}', [ShareController::class,'share']
