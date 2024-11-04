@@ -49,6 +49,17 @@ html {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
+
+  .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #ffbd39 !important ;
+    border-color: #ffbd39 !important;
+}
+  /* .pagination{
+    #ffbd39
+    color: black !important;
+  } */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

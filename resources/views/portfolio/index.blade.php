@@ -90,7 +90,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Clark</a>
+            <a class="navbar-brand" href="#">KIYA</a>
             <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
@@ -480,11 +480,11 @@
             <div class="row justify-content-center mb-5 pb-5">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h1 class="big big-2">Blog</h1>
-                    <h2 class="mb-4">Our Blog</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                    <h2 class="mb-4">My  Blog</h2>
+                    <p>Check out some of the articles i have posted</p>
                 </div>
             </div>
-            <div class="row d-flex">
+            {{-- <div class="row d-flex">
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry justify-content-end">
                         <a href="single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
@@ -542,7 +542,52 @@
                         </div>
                     </div>
                 </div>
+            </div> --}}
+            @php
+            $classes = ['primary', 'secondary', 'dark'];
+        @endphp
+            <div class="row d-flex">
+                @foreach ($blogs as $blog)
+                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex ftco-animate">
+                        <div class="blog-entry justify-content-end">
+                            <a href="{{route('blog.name',['slug'=>$blog->slug])}}" class="block-20" style="background-image: url('{{ asset($blog->thumbnail??'images/image_2.jpg') }}'); background-size: cover; background-position: center; width: 300px; height: 200px;">
+                            </a>
+                            <div class="text mt-3 float-right d-block">
+                                <div class="d-flex align-items-center mb-3 meta">
+                                    <p class="mb-0">
+                                        <span class="mr-2">{{ $blog->published_at->format('F j, Y') }}</span>
+                                        <a href="{{route('blog.name',['slug'=>$blog->slug])}}" class="mr-2">{{ $blog->author ?? 'Kiya ' }}</a>
+                                        <a href="{{route('blog.name',['slug'=>$blog->slug])}}" class="meta-chat"><span class="icon-eye"></span> {{ $blog->view_count }}</a>
+                                    </p>
+                                </div>
+                                <div class="categories mt-2">
+                                    @foreach ($blog->categories as $category) 
+                                    
+                                     <!-- Assuming each blog has a categories relationship -->
+                                     @php
+                                     // Randomly pick a class for the category badge
+                                     $randomClass = $classes[array_rand([0,1,2])];
+                                    
+                                    @endphp
+                  
+                                 <span class="badge badge-{{ $randomClass }}">{{ $category->title }}</span>
+                                    @endforeach
+                                </div>
+                                <h3 class="heading"><a href="">{{ $blog->title }}</a></h3>
+                                <p>{{ strip_tags(Str::limit($blog->body, 100)) }}</p> <!-- Limits the body text to 100 characters -->
+                               
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
+            
+            <!-- Pagination links -->
+            {{-- <div class="pagination">
+                {{ $blogs->links() }}
+            </div> --}}
+            
+            
         </div>
     </section>
 
@@ -767,9 +812,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i
-                            class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+                        </script> All rights reserved 
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>

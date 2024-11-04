@@ -22,7 +22,15 @@ Route::get('/docs', function () {
 })->name('public_docs');
 
 Route::get('/', [SiteFeatureController::class,'index']
-);
+)->name('home');
+
+Route::get('/blog/{slug}', [SiteFeatureController::class,'showblog']
+)->name('blog.name');
+Route::get('/blogs', [SiteFeatureController::class,'allblogs']
+)->name('allblogs');
+Route::get('/blogs/{category}', [SiteFeatureController::class,'blogcategory']
+)->name('blog.category');
+
 
 Route::get('/download/{file_label}', [SiteFeatureController::class, 'download'])->name('download');
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog\Category;
+use App\Models\Blog\CategoryPost;
 use App\Models\Blog\Post;
 use App\Models\General\Footerlink;
 use App\Models\General\MediaItem;
@@ -65,7 +67,8 @@ class SiteFeatureController extends Controller
                 ];
             }
 
-            $blogs = Post::latest()->paginate(3);
+            $blogs = Post::orderBy('created_at', 'desc')->paginate(3);
+            // dd($blogs);
             // dd($socialArray);
         return view('portfolio.index', compact('siteFeaturesArray','footerlogosArray','socialArray','blogs'));
     }
@@ -81,5 +84,30 @@ class SiteFeatureController extends Controller
         // Download the file
         return Storage::response('public/'.$filePath);
         
+    }
+
+
+    function showblog($slug)  {
+        
+
+        $blogPost = Post::where('slug', $slug)->firstOrFail();
+        // dd($blogPost);
+        $blogPost->increment('view_count');
+        $categories = Category::withCount('posts')->get();
+
+        return view('portfolio.single',compact('blogPost','categories'));
+        // dd($blogPost);
+    }
+    function allblogs()  {
+        $blogs = Post::orderBy('created_at', 'desc')->paginate(12);
+        return view('portfolio.allblogs',compact('blogs'));
+    }
+
+    function blogcategory($category) {
+        $blogs=Post::whereHas('categories', function ($query) use ($category) {
+            $query->where('categories.title', $category);
+        })->paginate(10);
+
+        return view('portfolio.allblogs',compact('blogs'));
     }
 }
