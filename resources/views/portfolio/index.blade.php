@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
 
     <style>
         .services-1:hover {
@@ -90,7 +92,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="#">KIYA</a>
+            <a class="navbar-brand skilltext" href="#">KIYA</a>
             <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
@@ -123,13 +125,14 @@
                         </div>
                         <div class="one-forth d-flex  align-items-center ftco-animate"
                             data-scrollax=" properties: { translateY: '70%' }">
-                            {{-- <div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Clark Thompson</span></h1>
-			            <h2 class="mb-4">A Freelance Web Designer</h2>
-			            <p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
-		            </div> --}}
                             <div class="text">
+		          		<span class="subheading">Hello!</span>
+			            <h1 class="mb-4 mt-3">I'm <span>Kiya Tilahun</span></h1>
+			            <h2 class="mb-4" id="professions">A Passionate Web developer</h2>
+                  
+			            <p><a href="#contact-section" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+		            </div>
+                            {{-- <div class="text">
                                 <span class="subheading">Hello!</span>
 
 
@@ -148,7 +151,7 @@
                                     </div>
                                 @endif
 
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -191,10 +194,10 @@
                     </div>
                     <div class="counter-wrap ftco-animate d-flex mt-md-3">
                         <div class="text">
-                            <p class="mb-4">
+                            {{-- <p class="mb-4">
                                 <span class="number" data-number="120">0</span>
                                 <span>Project complete</span>
-                            </p>
+                            </p> --}}
                             <p><a href="{{ route('download', ['file_label' => 'CV']) }}"
                                     class="btn btn-primary py-3 px-3" target="_blank">Download CV</a></p>
                         </div>
@@ -580,6 +583,7 @@
                         </div>
                     </div>
                 @endforeach
+                <p class="mb-0 col-12 text-center"><a href="{{route('allblogs')}}" class="btn btn-primary py-3 px-5">Show All Blogs</a></p>
             </div>
             
             <!-- Pagination links -->
@@ -630,7 +634,7 @@
         </div>
     </section>
     {{-- style="background-image: url(images/imageportfolio.jpeg)" --}}
-    <section class="  img ">
+    {{-- <section class="  img ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-7 ftco-animate text-center">
@@ -640,9 +644,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <section class=" contact-section ftco-no-pb" id="contact-section">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
@@ -897,6 +901,18 @@
             });
         });
     </script>
+    
+
+     <!-- Load library from the CDN -->
+     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+   
+     <!-- Setup and start animation! -->
+     <script>
+       var typed = new Typed('#element', {
+         strings: ['<i>First</i> sentence.', '&amp; a second sentence.'],
+         typeSpeed: 50,
+       });
+     </script>
 
 </body>
 

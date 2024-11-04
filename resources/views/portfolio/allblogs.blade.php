@@ -52,6 +52,13 @@
             animation: ease-in 0.5s;
 
         }
+        .skilltext {
+
+font-family: "Tiny5", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+}
 
         .icon-container {
             transition: transform 1.5s ease-in-out;
@@ -107,7 +114,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">Kiya</a>
+            <a class="navbar-brand  skilltext" href="{{ route('home') }}">Kiya</a>
             <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
@@ -139,8 +146,8 @@
             <div class="row justify-content-center mb-5 pb-5">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h1 class="big big-2">Blogs</h1>
-                    <h2 class="mb-4">My  Blog</h2>
-                    <p>Check out some of the articles i have posted</p>
+                    <h2 class="mb-4"><span class="skilltext">LaravelHubET</span> </h2>
+                    <p>Check out some of the articles I have posted</p>
                 </div>
             </div>
             {{-- <div class="row d-flex">
@@ -205,7 +212,23 @@
             @php
             $classes = ['primary', 'secondary', 'dark'];
         @endphp
+      <form class="form-inline mr-auto mb-5 d-flex justify-content-between" action="{{ route('allblogs') }}" method="GET">
+        @if(request()->has('query')||request()->routeIs('blog.category'))
+        <div class="mr-2  my-3" >
+            <a href="{{ route('allblogs') }}"><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="#ffbd39">
+<path d="M10 15H12C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3H8C4.68629 3 2 5.68629 2 9C2 10.5367 2.57771 11.9385 3.52779 13M16 21C19.3137 21 22 18.3137 22 15C22 13.4633 21.4223 12.0615 20.4722 11M12 21C8.68629 21 6 18.3137 6 15C6 11.6863 8.68629 9 12 9H14" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+</svg> Go to all Posts</a>
+        </div>
+    @endif
+
+       <div class="align-self-end ml-auto"> <input class="form-control mr-sm-2" type="search" name="query" value="{{$query??''}}" aria-label="Search" required>
+        <button class="btn btn-outline-warning my-3 " type="submit">Search</button></div>
+    
+
+    </form>
+    
             <div class="row d-flex">
+              
                 @foreach ($blogs as $blog)
                     <div class="col-lg-4 col-md-6 col-sm-12 d-flex ftco-animate">
                         <div class="blog-entry justify-content-end">
@@ -239,6 +262,12 @@
                         </div>
                     </div>
                 @endforeach
+                @if(session('message'))
+               
+
+                <p class="text-center w-100 m-auto"><a href="{{ route('download', ['file_label' => 'CV']) }}"
+                    class="btn btn-primary py-3 px-3" target="_blank">   {{ session('message') }}</a></p>
+@endif
             </div>
             
             <!-- Pagination links -->

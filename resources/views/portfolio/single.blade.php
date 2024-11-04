@@ -84,7 +84,7 @@ padding: 4rem;
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">Kiya</a>
+            <a class="navbar-brand skilltext" href="{{ route('home') }}">Kiya</a>
             <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
@@ -158,6 +158,7 @@ padding: 4rem;
                     <div class="sidebar-box ftco-animate">
                         <h3 class="heading-sidebar">Categories</h3>
                         <ul class="categories">
+                          <li><a href="{{route('allblogs')}}" class="btn btn-dark text-start">Show All Blogs</a></li>
                           @foreach ($categories as $category)
                               <li>
                                   <a href="{{route('blog.category',['category'=>$category->title])}}">

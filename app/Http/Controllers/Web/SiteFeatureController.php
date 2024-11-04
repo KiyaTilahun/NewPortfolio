@@ -98,10 +98,32 @@ class SiteFeatureController extends Controller
         return view('portfolio.single',compact('blogPost','categories'));
         // dd($blogPost);
     }
-    function allblogs()  {
-        $blogs = Post::orderBy('created_at', 'desc')->paginate(12);
-        return view('portfolio.allblogs',compact('blogs'));
+    public function allblogs(Request $request)
+    {
+
+        session()->forget('message');
+        $query = $request->input('query');
+        $blogs = Post::query();
+    
+        if ($query) {
+            $words = explode(' ', $query); // Split the query into individual words
+            $blogs = $blogs->where(function($q) use ($words) {
+                foreach ($words as $word) {
+                    $q->orWhere('title', 'LIKE', "%{$word}%");
+                     
+                }
+            });
+            
+        }
+    
+        $blogs = $blogs->orderBy('created_at', 'desc')->paginate(12);
+        $categories = Category::withCount('posts')->get();
+        if ($blogs->isEmpty()) {
+            session()->flash('message', 'No articles found that match your search.');
+        }
+        return view('portfolio.allblogs', compact('blogs', 'categories', 'query'));
     }
+    
 
     function blogcategory($category) {
         $blogs=Post::whereHas('categories', function ($query) use ($category) {
