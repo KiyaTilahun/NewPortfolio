@@ -66,6 +66,22 @@
             font-style: normal;
 
         }
+
+        div.project.framed:hover {
+            box-shadow:
+                -50px -50px 0 -40px #ffbd39,
+                50px 50px 0 -40px #ffbd39;
+            opacity: 30%;
+
+        }
+
+        .spinner-border {
+            width: 1rem;
+            height: 1rem;
+            border-width: 0.2em;
+            display: none;
+            /* Initially hidden */
+        }
     </style>
 </head>
 
@@ -423,68 +439,38 @@
             <div class="row justify-content-center pb-5">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <h1 class="big big-2">Projects</h1>
-                    <h2 class="mb-4">Our Projects</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                    <h2 class="mb-4">My Projects</h2>
+                    <p>In the following section, you'll find a showcase of some of my projects that demonstrate my skills and passion for innovation.</p>
                 </div>
             </div>
-            <div class="row">
-                @foreach ($siteFeaturesArray['PROJECTS']['data'] as $index => $project)
-                    <div class="col-md-{{ $index % (2+rand(1,2)) === 0 ? '5' : '7' }}">
-                        <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-                            style="background-image: url('{{ $project['image'] }}');background-position: center !important;">
+            {{-- <div class="row"> --}}
+            @foreach ($siteFeaturesArray['PROJECTS']['data'] as $index => $project)
+                {{-- Open a new row every two projects --}}
+                @if ($index % 2 === 0)
+                    <div class="row">
+                @endif
+
+                {{-- Alternate between col-md-5 and col-md-7 --}}
+                <div class="col-md-{{ $index % 4 === 0 || $index % 4 === 3 ? '7' : '5' }}">
+                    <a href="{{ $project['url'] ?? '#' }}" target="_blank">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center framed"
+                            style="background-image: url('{{ $project['image'] }}'); background-position: center !important;">
                             <div class="overlay"></div>
                             <div class="text text-center p-4">
-                                <h3><a href="#">{{ $project['title'] }}</a></h3>
-                                {{-- <span>{{ $project->category }}</span> --}}
+                                <h3>{{ $project['title'] }}</h3>
+                                <span>{!! html_entity_decode($project['description']) !!}</span>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-
-                <div class="col-md-8">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-                        style="background-image: url(images/project-1.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-                        style="background-image: url(images/project-6.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-                                style="background-image: url(images/project-2.jpg);">
-                                <div class="overlay"></div>
-                                <div class="text text-center p-4">
-                                    <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                                    <span>Web Design</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-                                style="background-image: url(images/project-3.jpg);">
-                                <div class="overlay"></div>
-                                <div class="text text-center p-4">
-                                    <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                                    <span>Web Design</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                {{-- Close the row after two projects --}}
+                @if ($index % 2 === 1)
+        </div>
+        @endif
+        @endforeach
+
+
+        {{-- </div> --}}
         </div>
     </section>
 
@@ -563,7 +549,7 @@
     <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
         <div class="container">
             <div class="row d-md-flex align-items-center">
-                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                {{-- <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18">
                         <div class="text">
                             <strong class="number" data-number="100">0</strong>
@@ -594,18 +580,18 @@
                             <span>Cups of coffee</span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
-
-    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
+    {{-- style="background-image: url(images/imageportfolio.jpeg)" --}}
+    <section class="  img ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-7 ftco-animate text-center">
                     <h2>I'm <span>Available</span> for freelancing</h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5">Hire me</a></p>
+                    <p>If you have any project in hand contact me.</p>
+                    <p class="mb-0"><a href="mailto:kiyatilahun0@gmail.com" class="btn btn-primary py-3 px-5">Hire me</a></p>
                 </div>
             </div>
         </div>
@@ -617,75 +603,109 @@
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h1 class="big big-2">Contact</h1>
                     <h2 class="mb-4">Contact Me</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                    <p>I'm here to help and eager to connect! Whether you have questions, feedback, or just want to say hello, feel free to reach out. </p>
                 </div>
             </div>
 
-            <div class="row d-flex contact-info mb-5">
-                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                    <div class="align-self-stretch box p-4 text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="icon-map-signs"></span>
+            <div class="container">
+                <div class="row">
+                     <!-- Contact Info Section -->
+                     <div class="col-md-6">
+                        
+                        <div class="row d-flex contact-info mb-5">
+                            <div class="col-md-6 col-lg-6 d-flex ftco-animate">
+                                <div class="align-self-stretch box p-4 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="icon-map-signs"></span>
+                                    </div>
+                                    <h3 class="mb-4">Address</h3>
+                                    <p>Addis Ababa, Ethiopia</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 d-flex ftco-animate">
+                                <div class="align-self-stretch box p-4 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="icon-phone2"></span>
+                                    </div>
+                                    <h3 class="mb-4">Contact Number</h3>
+                                    <p><a href="tel:+251943072433">+251943072433</a></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 d-flex ftco-animate">
+                                <div class="align-self-stretch box p-4 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="icon-paper-plane"></span>
+                                    </div>
+                                    <h3 class="mb-4">Email Address</h3>
+                                    <p><a href="mailto:kiyatilahun0@gmail.com">kiyatilahun0@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 d-flex ftco-animate">
+                                <div class="align-self-stretch box p-4 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="icon-globe"></span>
+                                    </div>
+                                    <h3 class="mb-4">Website</h3>
+                                    <p><a href="https://kiyatilahun.com">www.kiyatilahun.com</a></p>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="mb-4">Address</h3>
-                        <p>198 West 21th Street, Suite 721 New York NY 10016</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                    <div class="align-self-stretch box p-4 text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="icon-phone2"></span>
-                        </div>
-                        <h3 class="mb-4">Contact Number</h3>
-                        <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    <!-- Contact Form Section -->
+                    <div class="col-md-6">
+                        
+                        <form action="{{ route('contact.submit') }}" method="POST" class="bg-light p-4 contact-form">
+                            @csrf
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+            
+                            <div class="form-group">
+                                <input type="text" name="first_name" class="form-control" placeholder="First Name" value="{{ old('first_name') }}" required>
+                                @if ($errors->has('first_name'))
+                                    <span class="text-danger">{{ $errors->first('first_name') }}</span>
+                                @endif
+                            </div>
+            
+                            <div class="form-group">
+                                <input type="text" name="last_name" class="form-control" placeholder="Last Name" value="{{ old('last_name') }}" required>
+                                @if ($errors->has('last_name'))
+                                    <span class="text-danger">{{ $errors->first('last_name') }}</span>
+                                @endif
+                            </div>
+            
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
+                                @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
+                            </div>
+            
+                            <div class="form-group">
+                                <textarea name="message" cols="30" rows="7" class="form-control" placeholder="Message" required>{{ old('message') }}</textarea>
+                                @if ($errors->has('message'))
+                                    <span class="text-danger">{{ $errors->first('message') }}</span>
+                                @endif
+                            </div>
+            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary py-3 px-5">
+                                    Send Message 
+                                    <span class="spinner-border spinner-border-sm ml-2" role="status" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                    <div class="align-self-stretch box p-4 text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="icon-paper-plane"></span>
-                        </div>
-                        <h3 class="mb-4">Email Address</h3>
-                        <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                    <div class="align-self-stretch box p-4 text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="icon-globe"></span>
-                        </div>
-                        <h3 class="mb-4">Website</h3>
-                        <p><a href="#">yoursite.com</a></p>
-                    </div>
+            
+                   
                 </div>
             </div>
-
-            <div class="row no-gutters block-9">
-                <div class="col-md-6 order-md-last d-flex">
-                    <form action="#" class="bg-light p-4 p-md-5 contact-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                        </div>
-                    </form>
-
-                </div>
-
-                <div class="col-md-6 d-flex">
-                    <div class="img" style="background-image: url(images/about.jpg);"></div>
-                </div>
-            </div>
+            
         </div>
     </section>
 
@@ -696,8 +716,7 @@
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">About</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts.</p>
+                        <p>Software Engineer specializing in backend development, mainly using PHP and Laravel</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -710,40 +729,32 @@
                         <h2 class="ftco-heading-2">Links</h2>
                         <ul class="list-unstyled">
                             <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Services</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a>
+                            <li><a href="#about-section"><span class="icon-long-arrow-right mr-2"></span>About</a>
                             </li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Business
-                                    Strategy</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a>
+                            <li><a href="#skill-section"><span class="icon-long-arrow-right mr-2"></span>Skills</a>
                             </li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a>
+                            <li><a href="#projects-section"><span
+                                        class="icon-long-arrow-right mr-2"></span>Projects</a></li>
+                            <li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact</a>
                             </li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">Have a Questions?</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St.
-                                        Mountain View, San Francisco, California, USA</span></li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2
-                                            392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon icon-envelope"></span><span
-                                            class="text">info@yourdomain.com</span></a></li>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Addis
+                                        Ababa,Ethiopia</span></li>
+                                <li><a href="tel:+251943072433"><span class="icon icon-phone"></span><span
+                                            class="text">+251943072433</span></a></li>
+
+
+                                <li><a href="mailto:kiyatilahun0@gmail.com"><span
+                                            class="icon icon-envelope"></span><span
+                                            class="text">kiyatilahun0@gmail.com</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -790,7 +801,59 @@
     <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
     <script src="{{ asset('js/scrollax.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('input, textarea').on('focus', function() {
+            const errorMessage = $(this).next('.text-danger');
+            if (errorMessage.length) {
+                errorMessage.remove(); // Remove the error message
+            }
+        });
+            $('.contact-form').on('submit', function(e) {
+                e.preventDefault(); // Prevent the default form submission
+                const submitButton = $(this).find('button[type="submit"]');
+                const spinner = submitButton.find('.spinner-border');
+                submitButton.prop('disabled', true); // Disable the button to prevent multiple submissions
+                spinner.show();
+                $.ajax({
+                    url: $(this).attr('action'), // Form action URL
+                    method: 'POST',
+                    data: $(this).serialize(), // Serialize form data
+                    success: function(response) {
+                        // Show success message
+                        $('.alert-success').remove(); // Remove any previous alerts
+                        const alert = `
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            ${response.success}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>`;
 
+                        // Prepend alert inside the form
+                        $('.contact-form').prepend(alert);
+                        // Reset form fields
+                        $('.contact-form')[0].reset();
+                    },
+                    error: function(xhr) {
+                        // Handle validation errors
+                        const errors = xhr.responseJSON.errors;
+                        $('.text-danger').remove(); // Clear previous error messages
+                        for (const key in errors) {
+                            const errorMessage = errors[key][0]; // Get the first error message
+                            $('[name="' + key + '"]').after('<span class="text-danger">' +
+                                errorMessage + '</span>');
+                        }
+                    },
+                    complete: function() {
+                    // Hide the spinner and enable the button again
+                    spinner.hide(); // Hide the spinner
+                    submitButton.prop('disabled', false); // Enable the button
+                }
+                });
+            });
+        });
+    </script>
 
 </body>
 

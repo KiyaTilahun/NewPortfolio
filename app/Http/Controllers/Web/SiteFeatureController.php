@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog\Post;
 use App\Models\General\Footerlink;
 use App\Models\General\MediaItem;
 use App\Models\General\Socialmedia;
@@ -63,8 +64,10 @@ class SiteFeatureController extends Controller
                     'is_visible' => $social->is_visible,
                 ];
             }
+
+            $blogs = Post::latest()->paginate(3);
             // dd($socialArray);
-        return view('portfolio.index', compact('siteFeaturesArray','footerlogosArray','socialArray'));
+        return view('portfolio.index', compact('siteFeaturesArray','footerlogosArray','socialArray','blogs'));
     }
     
 

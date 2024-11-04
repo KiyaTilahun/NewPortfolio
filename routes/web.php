@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Form\ContactController;
 use App\Http\Controllers\Api\MediaCategoryController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ReplyController;
@@ -25,16 +26,17 @@ Route::get('/', [SiteFeatureController::class,'index']
 
 Route::get('/download/{file_label}', [SiteFeatureController::class, 'download'])->name('download');
 
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
 
-// Route::get('/demoshare/{post}', [ShareController::class,'share']
-// )->name('demoshare');
-// Route::get('/reply/{contact}', [ReplyController::class,'reply']
-// )->name('reply');
-// Route::get('/demoFolder', [MediaCategoryController::class,'demofolder']
-// )->name('demofolder');
-// Route::get('/download/file/{id}', [DownloadController::class,'download']
-// )->name('download.file');
-// Route::get('blog',function(){
+Route::get('/demoshare/{post}', [ShareController::class,'share']
+)->name('demoshare');
+Route::get('/reply/{contact}', [ReplyController::class,'reply']
+)->name('reply');
+Route::get('/demoFolder', [MediaCategoryController::class,'demofolder']
+)->name('demofolder');
+Route::get('/download/file/{id}', [DownloadController::class,'download']
+)->name('download.file');
+Route::get('blog',function(){
 
-//     return view('blog');
-// });
+    return view('blog');
+});

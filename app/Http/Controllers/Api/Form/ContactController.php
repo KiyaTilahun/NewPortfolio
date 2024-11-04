@@ -46,10 +46,13 @@ class ContactController extends Controller
                     ->toDatabase(),
             );
         }
-        return response()->json([
-            'success' => true,
-            'message' => 'Contact form submitted successfully.',
-        ], 201);
+        // return response()->json([
+        //     'success' => true,
+        //     'message' => 'Contact form submitted successfully.',
+        // ], 201);
+
+        return response()->json(['success' => 'Hello '.$message->first_name.' your Message has been sent successfully!']);
+        // return back()->with('success', 'Message sent successfully!');
 
     }
 }
