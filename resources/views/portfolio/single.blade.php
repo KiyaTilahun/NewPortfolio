@@ -53,28 +53,46 @@
 padding: 4rem;
           box-shadow:
                 /* -50px -50px 0 -48px #ffbd39, */
-                50px 50px 0 -48px #ffbd39;
+                50px 0px 0 -48px #ffbd39;
             opacity: 30%;
         }
 
-        .overon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            content: '';
-            opacity: 100;
-            background-color: #ffbd39 !important;
-            z-index: -1;
+        .blog-body img{
+            max-width: 100%;
+            height: auto;
+            margin-left: 0;
+            text-align: start;
 
         }
+
         img {
           border-radius: 10px
         }
         pre {
           border-radius: 20px
         }
+        .hero-wrap .overlay{
+            opacity: 1 !important;
+        }
+        .overlay {
+    position: absolute !important; /* Change from fixed to absolute */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Adjust opacity as needed */
+    z-index: 1 !important; /* Ensure it's below the text but above the background */
+    display: block !important; /* Make sure it is visible */
+    cursor: pointer !important; /* Change if needed */
+}
+#other {
+    position: absolute !important;
+    top: 50% !important;        /* Move down to the middle */
+    left: 50% !important;       /* Move right to the middle */
+    transform: translate(-50%, -50%) !important; /* Shift back by half its own width and height */
+    z-index: 2 !important;
+}
 
     </style>
 </head>
@@ -111,11 +129,14 @@ padding: 4rem;
             </div>
         </div>
     </nav>
+
     <section class="hero-wrap js-fullheight"
         style="background-image: url('{{ asset($blogPost['thumbnail'] ?? 'images/bg_2.png') }}')"
         data-stellar-background-ratio="0.5">
-        <div class="overlay overon"></div>
-        <div class="container">
+        
+        <div class="overlay" ></div>
+
+        <div class="container" id="other">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-12 ftco-animate pb-5 mb-3 text-center">
                     <h1 class="mb-3 bread">{{ $blogPost['title'] }}</h1>
@@ -303,7 +324,10 @@ padding: 4rem;
             })
         );
         hljs.highlightAll();
+
+       
     </script>
+
 </body>
 
 </html>
